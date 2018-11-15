@@ -13,15 +13,21 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root')
-        const content = 'Hello, World!'
-        const element = <div className="container">{content}</div>
-        const props = {
-            className: 'container-2',
-            children: 'World of react'
-        }
-        const element2 = <div {...props} className='Overridden class' />
+        const helloWorld = <div>Hello, World</div>
+        // React custom elements must start with a capital letter.
+        const Message = props => <div>{props.msg}{props.children}</div>
+        const element = (
+            <div className="container">
+                {helloWorld}
+                <Message msg='World of React' />
+                <Message msg='Reusable Components' />
+                <Message>
+                    React JSX Component
+                    <Message>Nest Components</Message>
+                </Message>
+            </div>
+        )
         ReactDOM.render(element, rootElement)
-        ReactDOM.render(element2, rootElement)
     </script>
 </body>
 
