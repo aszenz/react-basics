@@ -1,0 +1,52 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>React Demo</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgb(53, 54, 54);
+        }
+        .box-small{
+            width: 50px;
+            height: 50px;
+        }
+        .box-large{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.2/prop-types.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById('root')
+        const Box = props => {
+            return (
+                <div
+                    className={`box box-${props.size}`}
+                    style={{color: props.color}}
+                >
+                    {props.children}
+                </div>
+            )
+        }
+        const element = 
+            <div>
+                <Box size='small' color='red'>This is custom element</Box>
+                <Box size='large' color="green">Custom element 2></Box>
+                <Box color="black">Custom element 3></Box>
+            </div>
+        ReactDOM.render(element, rootElement)
+    </script>
+</body>
+
+</html>
